@@ -96,7 +96,8 @@ function notifyosd-precmd() {
             fi
 
             notify-send -i utilities-terminal \
-                    -u $urgency "$cmd_basename$sshhost_info completed $cmdstat" "\"$cmd\" took $cmd_time$tmux_info"
+                        -t $((1 * 60 * 60 * 1000)) \
+                        -u $urgency "$cmd_basename$sshhost_info completed $cmdstat" "<span font='26px'>\"$cmd\" took $cmd_time$tmux_info</span>"
 
             if [ "$UDM_PLAY_SOUND" != "0" ]
             then
